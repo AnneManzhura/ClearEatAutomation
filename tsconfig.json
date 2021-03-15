@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "outDir": "./built",
+    "allowJs": true,
+    "target": "es5",
+    "types": [
+      "node",
+      "@wdio/sync",
+      "@wdio/cucumber-framework"
+    ],
+    "strict": true
+  },
+  "include": [
+    "./**/*"
+  ],
+  "baseUrl": ".",
+  "paths": {
+    "*": ["node_modules/*"]
+  },
+  "module": "CommonJS",
+  "lib": ["es2017", "dom"],
+  "esModuleInterop": true,
+  "sourceMap": true,
+  "experimentalDecorators": true
+}

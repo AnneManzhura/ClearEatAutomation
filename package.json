@@ -1,0 +1,33 @@
+{
+  "name": "webdriverio-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio wdio.conf.js",
+    "cucumber-test": "cucumber-js",
+    "wdio-cucumber-test": "wdio cucumber.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.0.0",
+    "@types/node": "14.14.7",
+    "@wdio/cli": "6.6.4",
+    "@wdio/local-runner": "6.6.4",
+    "@wdio/mocha-framework": "6.6.3",
+    "@wdio/spec-reporter": "6.6.3",
+    "@wdio/sync": "6.6.4",
+    "chromedriver": "88.0.0",
+    "wdio-chromedriver-service": "6.0.4"
+  },
+  "dependencies": {
+    "@wdio/cucumber-framework": "6.7.0",
+    "babel": "6.23.0",
+    "cucumber-tsflow": "3.4.1",
+    "moment": "2.29.1",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.5"
+  },
+  "description": ""
+}
