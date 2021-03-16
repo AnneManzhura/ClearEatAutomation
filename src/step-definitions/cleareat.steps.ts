@@ -3,6 +3,8 @@ import {CleareatHeaderPage} from "../page-objects/cleareat.header.page";
 import {CleareatLoginPage} from "../page-objects/cleareat.login.page";
 import {CleareatMenuPage} from "../page-objects/cleareat.menu.page";
 import {Then} from 'cucumber'
+import {When} from 'cucumber'
+import {CleareatCartPage} from "../page-objects/cleareat.cart.page";
 
 @binding()
 export class CleareatSteps {
@@ -112,4 +114,54 @@ export class CleareatSteps {
         expect(cleareatMenuPage.getNumberOfAddedItemsOnDish(dish)).toStrictEqual(num);
     };
 
+    @when(/^I click on cart$/)
+    clickOnCart () {
+        this.cleareatHeaderPage.cart.click();
+    };
+
+    @then(/^I am at cart page$/)
+    iAmAtCart () {
+        const cleareatCartPage = new CleareatCartPage();
+        expect(cleareatCartPage.cartBox).toBeDisplayed();
+    };
+
+    @then(/^I see (\d+) item of dish "([^"]*)" in cart$/)
+    seeNItemsOnDishInCart (num:number, name:string) {
+        const cleareatCartPage = new CleareatCartPage();
+
+        browser.waitUntil(function () {
+            return cleareatCartPage.dishCard.isDisplayed();
+        }, 5000, 'dish card is not displayed');
+    };
+
+    @then(/^I see total sum equals to (\d+)$/)
+    seeTotalSum (sum:number) {
+        const cleareatCartPage = new CleareatCartPage();
+        expect(cleareatCartPage.orderSum).toStrictEqual(sum);
+    };
+
+    @when(/^I click on Next Btn$/)
+    clickOnNextBtnInCart () {
+        const cleareatCartPage = new CleareatCartPage();
+        cleareatCartPage.nextBtn.click();
+    };
+
+    @when(/^I click on Payment tab$/)
+    clickOnNextBtnInCartOnSecondScreen () {
+        const cleareatCartPage = new CleareatCartPage();
+        cleareatCartPage.paymentTab.click();
+    };
+
+    @when(/^I click on Pay after delivery Btn$/)
+    clickOnPayAfterDeliveryBtnInCart () {
+        const cleareatCartPage = new CleareatCartPage();
+        cleareatCartPage.payAfterDeliveryBtn.click();
+    };
+
+    @then(/^I see success screen with View Order Btn$/)
+    seeViewOrder () {
+        const cleareatCartPage = new CleareatCartPage();
+        expect(cleareatCartPage.viewOrderBtn).toBeDisplayed();
+    };
 }
+

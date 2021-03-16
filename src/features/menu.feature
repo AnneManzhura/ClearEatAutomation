@@ -1,8 +1,9 @@
-Feature: Working with menu and cart
+Feature: Working with menu and adding items to cart
 
   Background:
     When I open ClearEat page
 
+    @skip()
   Scenario: Adding/removing dishes to/from cart
     When I click on plus btn on dish "Італійські сири"
     Then I see 1 added dish in cart

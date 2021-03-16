@@ -25,7 +25,7 @@ export class CleareatHeaderPage {
     }
 
     get cart(): WebdriverIO.Element {
-        return $('a.cart');
+        return $('a.cart mat-icon');
     }
 
     open (): void {
