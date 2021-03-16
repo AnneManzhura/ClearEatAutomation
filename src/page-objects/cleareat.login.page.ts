@@ -4,6 +4,10 @@ export class CleareatLoginPage {
         return $('form button.main-bg')
     }
 
+    get loginForm(): WebdriverIO.Element {
+        return $('div.card')
+    }
+
     get alert():WebdriverIO.Element {
         return  $('form div.alert');
     }
